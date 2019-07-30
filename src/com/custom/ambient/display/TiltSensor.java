@@ -56,7 +56,14 @@ public class TiltSensor implements SensorEventListener {
         mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
         mSensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
         if (mSensorManager != null) {
-            mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_TILT_DETECTOR);
+            String customTilt = mContext.getResources().getString(
+                                        R.string.config_custom_tilt);
+            if (!customTilt.isEmpty()) {
+                mSensorManager = mContext.getSystemService(SensorManager.class);
+                mSensor = Utils.getSensor(mSensorManager, customTilt);
+            } else {
+                mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_TILT_DETECTOR);
+            }
         }
         mExecutorService = Executors.newSingleThreadExecutor();
         mSensorWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
