@@ -22,13 +22,14 @@ import android.content.Context;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.provider.Settings;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.Preference;
-import androidx.preference.SwitchPreference;
-import androidx.preference.PreferenceFragment;
+import android.support.v7.preference.PreferenceCategory;
+import android.support.v7.preference.Preference;
+import android.support.v14.preference.SwitchPreference;
+import android.support.v14.preference.PreferenceFragment;
 import android.view.MenuItem;
 
 import org.candy.support.preferences.CustomSeekBarPreference;
+import org.candy.support.preferences.SystemSettingSwitchPreference;
 
 public class DozeSettings extends PreferenceActivity implements PreferenceFragment.OnPreferenceStartFragmentCallback {
 
@@ -117,7 +118,7 @@ public class DozeSettings extends PreferenceActivity implements PreferenceFragme
             mAmbientDisplayPreference.setOnPreferenceChangeListener(this);
 
             mDozeOnChargePreference =
-                (SwitchPreference) findPreference(Utils.DOZE_ON_CHARGE);
+                (SwitchPreference) findPreference(Utils.AOD_CHARGE_KEY);
             mDozeOnChargePreference.setChecked(Utils.dozeOnChargeEnabled(mContext));
             mDozeOnChargePreference.setOnPreferenceChangeListener(this);
 
@@ -176,7 +177,7 @@ public class DozeSettings extends PreferenceActivity implements PreferenceFragme
                 mAmbientDisplayPreference.setChecked(value);
                 Utils.enableDoze(value, mContext);
                 return true;
-            } else if (Utils.DOZE_ON_CHARGE.equals(key)) {
+            } else if (Utils.AOD_CHARGE_KEY.equals(key)) {
                 mDozeOnChargePreference.setChecked(value);
                 Utils.enableDozeOnCharge(value, mContext);
                 return true;

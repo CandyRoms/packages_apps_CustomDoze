@@ -20,7 +20,7 @@
         android:key="doze_elements"
         android:title="@string/doze_elements_title" >
 
-        <com.havoc.support.preferences.SystemSettingSwitchPreference
+        <org.candy.support.preferences.SystemSettingSwitchPreference
             android:key="ambient_battery_percent"
             android:title="@string/ambient_battery_percent_title"
             android:summary="@string/ambient_battery_percent_summary"
@@ -38,7 +38,7 @@
             android:title="@string/aod_setting_title"
             android:summary="@string/aod_setting_summary" />
 
-        <com.havoc.support.preferences.SystemSettingSwitchPreference
+        <org.candy.support.preferences.SystemSettingSwitchPreference
             android:key="doze_on_charge"
             android:defaultValue="false"
             android:title="@string/doze_on_charge_title"
@@ -56,7 +56,7 @@
         android:key="double_tap"
         android:title="@string/double_tap_title" >
 
-        <com.havoc.support.preferences.SystemSettingSwitchPreference
+        <org.candy.support.preferences.SystemSettingSwitchPreference
             android:key="doze_trigger_doubletap"
             android:defaultValue="false"
             android:title="@string/doze_double_tap_title"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.custom.ambient.display"
     android:sharedUserId="android.uid.system">
 
@@ -15,6 +16,8 @@
     <application
         android:label="CustomDoze"
         android:supportsRtl="true"
+        tools:replace="android:appComponentFactory"
+        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
         android:persistent="true">
 
         <receiver android:name="com.custom.ambient.display.BootCompletedReceiver">
